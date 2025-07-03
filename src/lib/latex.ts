@@ -30,7 +30,7 @@ export default async function latex(texDoc: string, opts: LaTeXOpts) {
       }
 
       for (const [name, content] of inputs) {
-        await pdftex.writeMemFSFile(name, content)
+        await pdftex.writeMemFSFile(name as string, content)
       }
 
       await pdftex.writeMemFSFile('main.tex', texDoc)
@@ -47,7 +47,7 @@ export default async function latex(texDoc: string, opts: LaTeXOpts) {
       }
 
       for (const [name, content] of inputs) {
-        await xetex.writeMemFSFile(name, content)
+        await xetex.writeMemFSFile(name as string, content)
       }
 
       await xetex.writeMemFSFile('main.tex', texDoc)

@@ -38,7 +38,7 @@ function generateSourceCode(formData: FormValues) {
   zip.append(readme, { name: 'README.md' })
 
   if (opts.inputs) {
-    zip.directory(opts.inputs, '../')
+    zip.directory(opts.inputs as any, '../')
   }
 
   zip.finalize()

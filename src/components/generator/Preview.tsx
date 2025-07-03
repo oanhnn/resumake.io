@@ -1,7 +1,6 @@
 import { useAtom } from 'jotai'
 import { useState, useCallback } from 'react'
 import { pdfjs, Document, Page } from 'react-pdf'
-import type { PDFDocumentProxy } from 'pdfjs-dist/types/src/display/api'
 import styled from 'styled-components'
 import { resumeAtom } from '../../atoms/resume'
 
@@ -41,7 +40,7 @@ export function Preview() {
   const [pageNumber] = useState(1)
   const [scale] = useState(document.body.clientWidth > 1440 ? 1.75 : 1)
 
-  const handleDocumentLoadSuccess = useCallback((pdf: PDFDocumentProxy) => {
+  const handleDocumentLoadSuccess = useCallback((pdf: pdfjs.PDFDocumentProxy) => {
     setPageCount(pdf.numPages)
   }, [])
 
