@@ -8,6 +8,7 @@ const StyledHeader = styled.header`
   grid-area: header;
   width: 100%;
   height: 10vh;
+  max-height: 3.75rem;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -24,7 +24,7 @@ export default function Highlights({
   name,
   label,
   placeholder
-}: HighlightsProps) {
+}: Readonly<HighlightsProps>) {
   const { fields, append, remove } = useFieldArray({ name })
 
   return (

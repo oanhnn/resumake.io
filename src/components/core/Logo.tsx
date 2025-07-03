@@ -8,7 +8,7 @@ interface Props {
   scale?: number
 }
 
-export function Logo(props: Props) {
+export function Logo(props: Readonly<Props>) {
   return (
     <svg
       width={260 * (props.scale ?? 1)}

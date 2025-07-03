@@ -28,7 +28,7 @@ export default async function handler(
  *
  * @return The generated zip.
  */
-function generateSourceCode(formData: FormValues) {
+async function generateSourceCode(formData: FormValues) {
   const { texDoc, opts } = getTemplateData(formData)
   const prettyDoc = /*prettify(texDoc)*/ texDoc
   const zip = Archiver('zip')
@@ -38,10 +38,10 @@ function generateSourceCode(formData: FormValues) {
   zip.append(readme, { name: 'README.md' })
 
   if (opts.inputs) {
-    zip.directory(opts.inputs as any, '../')
+    zip.directory(opts.inputs.join('/'), '../')
   }
 
-  zip.finalize()
+  await zip.finalize()
 
   return zip
 }

@@ -37,7 +37,7 @@ interface KeywordProps {
   placeholder: string
 }
 
-export default function Keywords({ name, label, placeholder }: KeywordProps) {
+export default function Keywords({ name, label }: Readonly<KeywordProps>) {
   const { getValues } = useFormContext()
   const { fields, append, remove } = useFieldArray({ name })
 

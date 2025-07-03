@@ -1,17 +1,19 @@
 import { useAtom } from 'jotai'
 import { useState, useCallback } from 'react'
 import { pdfjs, Document, Page } from 'react-pdf'
-import styled from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 import { resumeAtom } from '../../atoms/resume'
 
-const workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
-pdfjs.GlobalWorkerOptions.workerSrc = workerSrc
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+  'pdfjs-dist/build/pdf.worker.min.mjs',
+  import.meta.url,
+).toString();
 
 const Output = styled.output`
   grid-area: preview;
-  background: ${(props) => props.theme.lightBlack};
+  background: black;
   overflow-y: auto;
-`
+  `
 
 const PdfContainer = styled.article`
   width: 100%;
